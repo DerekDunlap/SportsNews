@@ -7,6 +7,7 @@ const mlbNewsButton = document.getElementById("mlbNewsButton")
 const nhlNewsButton = document.getElementById("nhlNewsButton")
 const wnbaNewsButton = document.getElementById("wnbaNewsButton")
 const collegeFootballNewsButton = document.getElementById("collegeFootballNewsButton")
+const sportsInfoUL=document.getElementById("sportsInfoUL")
 
 
 mediaButton.onclick = function() {
@@ -24,9 +25,7 @@ function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
         .then(response => {
             return response.json()
         }).then(sportsNewsArticles => {
-            console.log(sportsNewsArticles)
             sportsNewsDownloaded(sportsNewsArticles)
-
         })
 }
 
@@ -68,6 +67,15 @@ collegeFootballNewsButton.addEventListener('click', function() {
     })
 })
 
+//gamesLink.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
+    const nflScoresURL=`http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
+    const mlbScoresURL=`http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
+    getSportsNews(nflScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+//})
+
 //display function can be called by all sports tab (Examples: NFL,NBA,Soccer)
 function displaySportsArticles(sportsNewArticles) {
     const sportsArticles = sportsNewArticles.articles
@@ -86,4 +94,33 @@ function displaySportsArticles(sportsNewArticles) {
         return sportsNewsTemplate
     })
     sportsNewsUL.innerHTML = sportItem.join("")
+}
+
+//new
+function displaySportsScore(sportsScoresData){
+    const sportsEvents = sportsScoresData.events
+    const eventItem=sportsEvents.map(function(sportsEvent){
+        const sportsVenue=sportsEvent.competitions.map(function(sportsComp){
+            let sportsTeams=sportsComp.competitors.map(function(sportsOppoent){
+                for(let i=0;i<6;i++){
+                    return `<li>${sportsOppoent.team.name} ${sportsOppoent.records[i].summary} ${sportsOppoent.score}</li>\n`
+                }
+            })
+            sportsTeams=sportsTeams.join("")
+            let gameDate= new Date(sportsComp.date)
+            let weekday=new Intl.DateTimeFormat('en',{weekday:'short'}).format(gameDate)
+            let month=new Intl.DateTimeFormat('en',{month:'2-digit'}).format(gameDate)
+            let day=new Intl.DateTimeFormat('en',{day:'2-digit'}).format(gameDate)
+            gameDate=`${weekday} ${month}/${day}`
+            return `${gameDate} - ${sportsComp.status.type.description} - ${sportsComp.venue.fullName}
+            <div>
+                <ul>${sportsTeams}</ul>
+            </div>`
+            })
+        const sportsEventTemplate=`<li>
+        <label>${sportsVenue}</label>
+        </li>`
+        console.log(sportsEventTemplate)
+    })
+    
 }
