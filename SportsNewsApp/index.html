@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <nav class="nav">
         <div class="container">
@@ -15,12 +17,15 @@
                 <a href="#">Name</a>
             </div>
             <div class="main_list" id="mainListDiv">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Games</a></li>
-                    <li><a href="#">Teams</a></li>
-                    <li><a href="#">Players</a></li>
+                <ul id="sportsNewsUL">
+                    <button id='nflNewsButton'>NFL</button>
+                    <button id='nbaNewsButton'>NBA</button>
+                    <button id='mlbNewsButton'>MLB</button>
+                    <button id='nhlNewsButton'>NHL</button>
+                    <button id='wnbaNewsButton'>WNBA</button>
+                    <button id='collegeFootballNewsButton'>College Football</button>
+
+
                 </ul>
             </div>
             <div class="media_button">
@@ -31,8 +36,9 @@
                 </button>
             </div>
         </div>
-    </nav>     
+    </nav>
     <section class="home"></section>
     <script src="app.js"></script>
 </body>
-</html> 
+
+</html>
