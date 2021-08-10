@@ -7,7 +7,14 @@ const mlbNewsButton = document.getElementById("mlbNewsButton")
 const nhlNewsButton = document.getElementById("nhlNewsButton")
 const wnbaNewsButton = document.getElementById("wnbaNewsButton")
 const collegeFootballNewsButton = document.getElementById("collegeFootballNewsButton")
-const sportsInfoUL=document.getElementById("sportsInfoUL")
+const sportsInfoUL=document.getElementById("scoreInfoUL")
+let scoreBoardDiv=document.getElementById("scoreboard-container")
+    scoreBoardDiv.style.display="none"
+
+//Testing UI for scoresDisplay
+const nflLink=document.getElementById("nflLink")
+const mlbLink=document.getElementById("mlbLink")
+const nbaLink=document.getElementById("nbaLink")
 
 
 mediaButton.onclick = function() {
@@ -87,14 +94,31 @@ function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
     })
 //})
 
-//gamesLink.addEventListener('click',function(){
+nflLink.addEventListener('click',function(){
     //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display="flex"
     const nflScoresURL=`http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
-    const mlbScoresURL=`http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
     getSportsNews(nflScoresURL,function(scoreBoardData){
         displaySportsScore(scoreBoardData)
     })
-//})
+})
+
+mlbLink.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display="flex"
+    const mlbScoresURL=`http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
+    getSportsNews(mlbScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+nbaLink.addEventListener('click',function(){
+    scoreBoardDiv.style.display="flex"
+    const nbaScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard`
+    getSportsNews(nbaScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
 
 //display function can be called by all sports tab (Examples: NFL,NBA,Soccer)
 function displaySportsArticles(sportsNewArticles) {
@@ -116,8 +140,8 @@ function displaySportsArticles(sportsNewArticles) {
     //sportsNewsUL.innerHTML = sportItem.join("")
 }
 
-//new
 function displaySportsScore(sportsScoresData){
+
     const sportsEvents = sportsScoresData.events
     const eventItem=sportsEvents.map(function(sportsEvent){
         const sportsVenue=sportsEvent.competitions.map(function(sportsComp){
@@ -132,14 +156,15 @@ function displaySportsScore(sportsScoresData){
             let month=new Intl.DateTimeFormat('en',{month:'2-digit'}).format(gameDate)
             let day=new Intl.DateTimeFormat('en',{day:'2-digit'}).format(gameDate)
             gameDate=`${weekday} ${month}/${day}`
-            return `${gameDate} - ${sportsComp.status.type.description} - ${sportsComp.venue.fullName}
-            <div>
+            return `<div>
+                ${gameDate} - ${sportsComp.status.type.description} @ ${sportsComp.venue.fullName}
                 <ul>${sportsTeams}</ul>
             </div>`
             })
         const sportsEventTemplate=`<li>
         <label>${sportsVenue}</label>
         </li>`
-        console.log(sportsEventTemplate)
+        return sportsEventTemplate
     })
+    sportsInfoUL.innerHTML=eventItem.join("")
 }

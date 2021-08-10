@@ -18,23 +18,13 @@ submit.addEventListener('click', function() {
             playerItems = players.map((player) => {
                 return `<div>
                     <h1>${player.first_name} ${player.last_name}</h1>
-                <p> ${player.height_feet}'-${player.height_inches}" ${player.weight_pounds}lbs </p>
-                  <p> ${player.position}</p>
-                  <p> ${player.team.full_name}</p>
-
-
-
-
-                </div>
-                `
-
-
-
-
+                    <p> ${player.height_feet}'-${player.height_inches}" ${player.weight_pounds}lbs </p>
+                    <p> ${player.position}</p>
+                    <p> ${player.team.full_name}</p>
+                </div>`
             })
 
             playerList.innerHTML = playerItems.join("")
-
 
             // const first_nameValue = data[0].first_name;
             // const last_nameValue = data[0].last_name
@@ -46,7 +36,6 @@ submit.addEventListener('click', function() {
             // const full_nameValue = data.Team.full_name;
             // const nameValue = data.Team.name;
 
-
             // first_nameValue.innerHTML = first_nameValue;
             // last_nameValue.innerHTML = last_nameValue;
             // positionValue.innerHTML = positionValue
@@ -56,8 +45,6 @@ submit.addEventListener('click', function() {
             // divisionValue.innerHTML = divisionValue
             // full_name.innerHTML = full_nameValue
             // nameValue.innerHTML = nameValue
-
-
         })
 
     .catch(err => {

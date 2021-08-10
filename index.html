@@ -26,9 +26,9 @@
                     <div class="dropdown">
                         <button onclick="myFunction()" class="dropbtn">Sports</button>
                         <div id="myDropdown" class="dropdown-content">
-                            <a href="#">NFL</a>
-                            <a href="#">NBA</a>
-                            <a href="#">MLB</a>
+                            <a id="nflLink" href="#">NFL</a>
+                            <a id="nbaLink" href="#">NBA</a>
+                            <a id="mlbLink" href="#">MLB</a>
                         </div>
 
                     </div>
@@ -50,9 +50,6 @@
                     </li>
                 </ul>
             </div>
-
-
-
             <!--Mobile Mode Hamburger menu (Hidden in fullscreen)-->
 
             <div class="media_button">
@@ -65,8 +62,18 @@
         </div>
 
     </nav>
-    <!--------------------->
-    <section class="home"></section>
+    <section class="home">
+        <!--Div Container to display the Game Scoreboard-->
+        <div id="scoreboard-container">
+            <div id="scorebox-div">
+                <h4>Score Board</h4>
+                <ul id="scoreInfoUL">
+
+                </ul>
+            </div>
+        </div>
+        <!--------------------->
+    </section>
     <script src="app.js"></script>
     <script src="dropdown.js"></script>
 </body>
