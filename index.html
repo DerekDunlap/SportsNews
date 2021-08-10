@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -17,9 +17,12 @@
             </div>
             <div class="main_list" id="mainListDiv">
                 <ul>
+                    <form id="demo-2">
+                        <input type="search" placeholder="Search Players">
+                    </form>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="">Players</a></li>
                     <li><a href="">News</a></li>
+                    <li><a href="">Teams</a></li>
                     <div class="dropdown">
                         <button onclick="myFunction()" class="dropbtn">Sports</button>
                         <div id="myDropdown" class="dropdown-content">
@@ -27,39 +30,31 @@
                             <a href="#">NBA</a>
                             <a href="#">MLB</a>
                         </div>
+
                     </div>
-                    <div class=hiddenList> 
-                        <label></label> 
-                        <a href="#">News</a>
-                        <a href="#">Players</a>
-                        <a href="#">Teams</a>
+
+
+                    <!--Mobile version of dropdown (Hidden in fullscreen) -->
+                    <div class=hiddenList>
+                        <label>dropdownMobile</label>
+                        <a href="#">Option 1</a>
+                        <a href="#">Option 2</a>
+                        <a href="#">Option 3</a>
                     </div>
-                    <div class=hiddenList2> 
-                        <label></label>
+                    <div class=hiddenList2>
+                        <label>dropdownMobile2</label>
                         <a href="#">NFL</a>
                         <a href="#">NBA</a>
                         <a href="#">MLB</a>
                     </div>
-                        <li>
-                            <div class="dropdown">
-                                <button onclick="myFunction()" class="dropbtn2">Teams</button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    
-                                    <a href="#">Link 1</a>
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
-                                </div>
-                            </div>
-                            <div class=hiddenList>
-                                <label>Teams</label>
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
-                            </div>
-
-                        </li>
+                    </li>
                 </ul>
             </div>
+
+
+
+            <!--Mobile Mode Hamburger menu (Hidden in fullscreen)-->
+
             <div class="media_button">
                 <button class="main_media_button" id="mediaButton">
                     <span></span>
@@ -68,9 +63,12 @@
                 </button>
             </div>
         </div>
+
     </nav>
+    <!--------------------->
     <section class="home"></section>
     <script src="app.js"></script>
+    <script src="dropdown.js"></script>
 </body>
 
 </html>
