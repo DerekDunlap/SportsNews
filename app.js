@@ -11,13 +11,30 @@ const sportsInfoUL=document.getElementById("sportsInfoUL")
 
 
 mediaButton.onclick = function() {
-
     "use strict";
-
     mainListDiv.classList.toggle("show_list");
     mediaButton.classList.toggle("active");
-
 };
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn, .dropbtn2')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
 
 //gets Sports News Articles from ESPN API with LiveServer turned on. Pass url and callback function
 function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
@@ -30,42 +47,45 @@ function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
 }
 
 //addEventListener for NFL Tab Button
-nflNewsButton.addEventListener('click', function() {
+//nflNewsButton.addEventListener('click', function() {
     const nflNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/nfl/news`
     getSportsNews(nflNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-})
-nbaNewsButton.addEventListener('click', function() {
+//})
+
+//nbaNewsButton.addEventListener('click', function() {
     const nbaNewsURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/nba/news`
     getSportsNews(nbaNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-})
-mlbNewsButton.addEventListener('click', function() {
+//})
+
+//mlbNewsButton.addEventListener('click', function() {
     const mlbNewsURL = `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news`
     getSportsNews(mlbNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-})
-nhlNewsButton.addEventListener('click', function() {
+//})
+
+//nhlNewsButton.addEventListener('click', function() {
     const nhlNewsURL = `http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news`
     getSportsNews(nhlNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-})
-wnbaNewsButton.addEventListener('click', function() {
+//})
+//wnbaNewsButton.addEventListener('click', function() {
     const wnbaNewsURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news`
     getSportsNews(wnbaNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-})
-collegeFootballNewsButton.addEventListener('click', function() {
+//})
+//collegeFootballNewsButton.addEventListener('click', function() {
     const collegeFootballNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/college-football/news`
     getSportsNews(collegeFootballNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-})
+//})
 
 //gamesLink.addEventListener('click',function(){
     //ScoresURL **Testing Purposes
@@ -93,7 +113,7 @@ function displaySportsArticles(sportsNewArticles) {
         `
         return sportsNewsTemplate
     })
-    sportsNewsUL.innerHTML = sportItem.join("")
+    //sportsNewsUL.innerHTML = sportItem.join("")
 }
 
 //new
@@ -122,5 +142,4 @@ function displaySportsScore(sportsScoresData){
         </li>`
         console.log(sportsEventTemplate)
     })
-    
 }
