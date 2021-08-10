@@ -12,12 +12,12 @@ let scoreBoardDiv=document.getElementById("scoreboard-container")
     scoreBoardDiv.style.display="none"
 
 //Testing UI for scoresDisplay
-const nflLink=document.getElementById("nflLink")
-const mlbLink=document.getElementById("mlbLink")
-const nbaLink=document.getElementById("nbaLink")
+const gamesNFL=document.getElementById("gamesNFL")
+const gamesMLB=document.getElementById("gamesMLB")
+const gamesNBA=document.getElementById("gamesNBA")
 
 
-mediaButton.onclick = function() {
+/*mediaButton.onclick = function() {
     "use strict";
     mainListDiv.classList.toggle("show_list");
     mediaButton.classList.toggle("active");
@@ -94,7 +94,7 @@ function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
     })
 //})
 
-nflLink.addEventListener('click',function(){
+gamesNFL.addEventListener('click',function(){
     //ScoresURL **Testing Purposes
     scoreBoardDiv.style.display="flex"
     const nflScoresURL=`http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
@@ -103,7 +103,7 @@ nflLink.addEventListener('click',function(){
     })
 })
 
-mlbLink.addEventListener('click',function(){
+gamesMLB.addEventListener('click',function(){
     //ScoresURL **Testing Purposes
     scoreBoardDiv.style.display="flex"
     const mlbScoresURL=`http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
@@ -112,7 +112,7 @@ mlbLink.addEventListener('click',function(){
     })
 })
 
-nbaLink.addEventListener('click',function(){
+gamesNBA.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const nbaScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard`
     getSportsNews(nbaScoresURL,function(scoreBoardData){
