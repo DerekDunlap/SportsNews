@@ -1,5 +1,4 @@
-let mainListDiv = document.getElementById("mainListDiv"),
-    mediaButton = document.getElementById("mediaButton");
+const homePage=document.getElementById("homePage")
 const sportsNewsUL = document.getElementById("sportsNewsUL")
 const nflNewsButton = document.getElementById("nflNewsButton")
 const nbaNewsButton = document.getElementById("nbaNewsButton")
@@ -13,19 +12,20 @@ let scoreBoardDiv=document.getElementById("scoreboard-container")
 
 //Testing UI for scoresDisplay
 const gamesNFL=document.getElementById("gamesNFL")
-const gamesMLB=document.getElementById("gamesMLB")
 const gamesNBA=document.getElementById("gamesNBA")
-
-
-/*mediaButton.onclick = function() {
-    "use strict";
-    mainListDiv.classList.toggle("show_list");
-    mediaButton.classList.toggle("active");
-};
+const gamesMLB=document.getElementById("gamesMLB")
+const gamesEPL=document.getElementById("gamesEPL")
+const gamesMLS=document.getElementById("gamesMLS")
+const gamesNHL=document.getElementById("gamesNHL")
+const gamesWNBA=document.getElementById("gamesWNBA")
+const gamesBBallMens=document.getElementById("gamesBBallMens")
+const gamesBBallWomens=document.getElementById("gamesBBallWomens")
+const gamesNCAABaseball=document.getElementById("gamesNCAABaseball")
+const gamesNCAAF=document.getElementById("gamesNCAAF")
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function myFunction() {
+/*function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
   
@@ -41,7 +41,7 @@ function myFunction() {
         }
       }
     }
-  }
+  }*/
 
 //gets Sports News Articles from ESPN API with LiveServer turned on. Pass url and callback function
 function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
@@ -94,11 +94,23 @@ function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
     })
 //})
 
+homePage.addEventListener('click',function(){
+    scoreBoardDiv.style.display="none"
+})
+
 gamesNFL.addEventListener('click',function(){
     //ScoresURL **Testing Purposes
     scoreBoardDiv.style.display="flex"
     const nflScoresURL=`http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
     getSportsNews(nflScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesNBA.addEventListener('click',function(){
+    scoreBoardDiv.style.display="flex"
+    const nbaScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard`
+    getSportsNews(nbaScoresURL,function(scoreBoardData){
         displaySportsScore(scoreBoardData)
     })
 })
@@ -112,10 +124,73 @@ gamesMLB.addEventListener('click',function(){
     })
 })
 
-gamesNBA.addEventListener('click',function(){
+gamesEPL.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
     scoreBoardDiv.style.display="flex"
-    const nbaScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard`
-    getSportsNews(nbaScoresURL,function(scoreBoardData){
+    const eplScoresURL=`http://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard`
+    getSportsNews(eplScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesMLS.addEventListener('click',function(){
+    scoreBoardDiv.style.display="flex"
+    const mlsScoresURL=`http://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard`
+    getSportsNews(mlsScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesNHL.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display="flex"
+    const nhlScoresURL=`http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard`
+    getSportsNews(nhlScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesWNBA.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display="flex"
+    const wnbaScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard`
+    getSportsNews(wnbaScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesNCAAF.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display="flex"
+    const ncaaFScoresURL=`http://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard`
+    getSportsNews(ncaaFScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesBBallMens.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display="flex"
+    const mensBBallScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard`
+    getSportsNews(mensBBallScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesBBallWomens.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display="flex"
+    const womensBBallScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard`
+    getSportsNews(womensBBallScoresURL,function(scoreBoardData){
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesNCAABaseball.addEventListener('click',function(){
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display="flex"
+    const ncaaBaseballScoresURL=`https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard`
+    getSportsNews(ncaaBaseballScoresURL,function(scoreBoardData){
         displaySportsScore(scoreBoardData)
     })
 })
@@ -168,3 +243,6 @@ function displaySportsScore(sportsScoresData){
     })
     sportsInfoUL.innerHTML=eventItem.join("")
 }
+
+//Players API
+//https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes/1966
