@@ -159,3 +159,10 @@ border: 1px solid #000000;
 .navbar-brand {
     font-size: 36px;
 }
+.dropdown-item:hover {
+    background-color: rgb(52, 58, 64);
+    color: white;
+}
+.dropdown-item: {
+    color: white;
+}
