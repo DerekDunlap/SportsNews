@@ -145,12 +145,13 @@ h4 {
 }
 .btn-outline-success {
     color: white;
+    border-color: rgb(214, 213, 213);
 }
 .btn-primary{
     background-color: #68889E;
     }
 .dropdown-menu{
-background-color: #f0f0f0;
+background-color: #ffffff;
 border: 1px solid #000000;
 }
 .dropdown-toggle:hover {
