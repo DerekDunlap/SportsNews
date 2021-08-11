@@ -7,34 +7,37 @@ const mlbNewsButton = document.getElementById("mlbNewsButton")
 const nhlNewsButton = document.getElementById("nhlNewsButton")
 const wnbaNewsButton = document.getElementById("wnbaNewsButton")
 const collegeFootballNewsButton = document.getElementById("collegeFootballNewsButton")
-const sportsInfoUL=document.getElementById("sportsInfoUL")
+const sportsInfoUL = document.getElementById("sportsInfoUL")
+const input = document.querySelector("input")
+const playerList = document.getElementById("player-list")
+const submit = document.getElementById('submit')
 
 
-mediaButton.onclick = function() {
-    "use strict";
-    mainListDiv.classList.toggle("show_list");
-    mediaButton.classList.toggle("active");
-};
+// mediaButton.onclick = function() {
+//     "use strict";
+//     mainListDiv.classList.toggle("show_list");
+//     mediaButton.classList.toggle("active");
+// };
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
     if (!event.target.matches('.dropbtn, .dropbtn2')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
         }
-      }
     }
-  }
+}
 
 //gets Sports News Articles from ESPN API with LiveServer turned on. Pass url and callback function
 function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
@@ -48,59 +51,59 @@ function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
 
 //addEventListener for NFL Tab Button
 //nflNewsButton.addEventListener('click', function() {
-    const nflNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/nfl/news`
-    getSportsNews(nflNewsURL, function(sportsNewArticles) {
+const nflNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/nfl/news`
+getSportsNews(nflNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-//})
+    //})
 
 //nbaNewsButton.addEventListener('click', function() {
-    const nbaNewsURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/nba/news`
-    getSportsNews(nbaNewsURL, function(sportsNewArticles) {
+const nbaNewsURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/nba/news`
+getSportsNews(nbaNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-//})
+    //})
 
 //mlbNewsButton.addEventListener('click', function() {
-    const mlbNewsURL = `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news`
-    getSportsNews(mlbNewsURL, function(sportsNewArticles) {
+const mlbNewsURL = `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news`
+getSportsNews(mlbNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-//})
+    //})
 
 //nhlNewsButton.addEventListener('click', function() {
-    const nhlNewsURL = `http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news`
-    getSportsNews(nhlNewsURL, function(sportsNewArticles) {
+const nhlNewsURL = `http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news`
+getSportsNews(nhlNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-//})
-//wnbaNewsButton.addEventListener('click', function() {
-    const wnbaNewsURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news`
-    getSportsNews(wnbaNewsURL, function(sportsNewArticles) {
+    //})
+    //wnbaNewsButton.addEventListener('click', function() {
+const wnbaNewsURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news`
+getSportsNews(wnbaNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-//})
-//collegeFootballNewsButton.addEventListener('click', function() {
-    const collegeFootballNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/college-football/news`
-    getSportsNews(collegeFootballNewsURL, function(sportsNewArticles) {
+    //})
+    //collegeFootballNewsButton.addEventListener('click', function() {
+const collegeFootballNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/college-football/news`
+getSportsNews(collegeFootballNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })
-//})
+    //})
 
 //gamesLink.addEventListener('click',function(){
-    //ScoresURL **Testing Purposes
-    const nflScoresURL=`http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
-    const mlbScoresURL=`http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
-    getSportsNews(nflScoresURL,function(scoreBoardData){
+//ScoresURL **Testing Purposes
+const nflScoresURL = `http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
+const mlbScoresURL = `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
+getSportsNews(nflScoresURL, function(scoreBoardData) {
         displaySportsScore(scoreBoardData)
     })
-//})
+    //})
 
 //display function can be called by all sports tab (Examples: NFL,NBA,Soccer)
 function displaySportsArticles(sportsNewArticles) {
     const sportsArticles = sportsNewArticles.articles
     const sportItem = sportsArticles.map(function(sportArticle) {
-        const sportsNewsTemplate = `<li>  
+            const sportsNewsTemplate = `<li>  
             <label>${sportArticle.images}</label>
             <label>${sportArticle.images.name}</label>
             <label>${sportArticle.description}/label>
@@ -111,35 +114,95 @@ function displaySportsArticles(sportsNewArticles) {
             <label>${sportArticle.categories}</label>
         </li>
         `
-        return sportsNewsTemplate
-    })
-    //sportsNewsUL.innerHTML = sportItem.join("")
+            return sportsNewsTemplate
+        })
+        //sportsNewsUL.innerHTML = sportItem.join("")
 }
 
 //new
-function displaySportsScore(sportsScoresData){
+function displaySportsScore(sportsScoresData) {
     const sportsEvents = sportsScoresData.events
-    const eventItem=sportsEvents.map(function(sportsEvent){
-        const sportsVenue=sportsEvent.competitions.map(function(sportsComp){
-            let sportsTeams=sportsComp.competitors.map(function(sportsOppoent){
-                for(let i=0;i<6;i++){
+    const eventItem = sportsEvents.map(function(sportsEvent) {
+        const sportsVenue = sportsEvent.competitions.map(function(sportsComp) {
+            let sportsTeams = sportsComp.competitors.map(function(sportsOppoent) {
+                for (let i = 0; i < 6; i++) {
                     return `<li>${sportsOppoent.team.name} ${sportsOppoent.records[i].summary} ${sportsOppoent.score}</li>\n`
                 }
             })
-            sportsTeams=sportsTeams.join("")
-            let gameDate= new Date(sportsComp.date)
-            let weekday=new Intl.DateTimeFormat('en',{weekday:'short'}).format(gameDate)
-            let month=new Intl.DateTimeFormat('en',{month:'2-digit'}).format(gameDate)
-            let day=new Intl.DateTimeFormat('en',{day:'2-digit'}).format(gameDate)
-            gameDate=`${weekday} ${month}/${day}`
+            sportsTeams = sportsTeams.join("")
+            let gameDate = new Date(sportsComp.date)
+            let weekday = new Intl.DateTimeFormat('en', { weekday: 'short' }).format(gameDate)
+            let month = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(gameDate)
+            let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(gameDate)
+            gameDate = `${weekday} ${month}/${day}`
             return `${gameDate} - ${sportsComp.status.type.description} - ${sportsComp.venue.fullName}
             <div>
                 <ul>${sportsTeams}</ul>
             </div>`
-            })
-        const sportsEventTemplate=`<li>
+        })
+        const sportsEventTemplate = `<li>
         <label>${sportsVenue}</label>
         </li>`
         console.log(sportsEventTemplate)
     })
 }
+// search players information
+submit.addEventListener('click', function() {
+    console.log("fetch")
+        //fetch(`https://www.balldontlie.io/api/v1/players?search=${input.value}`)
+    fetch(`https://nba-player-individual-stats.p.rapidapi.com/players/lastname?lastname=${input.value}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "a1511fc773msh67cb42be7a4986ap1d8a20jsndf7d3c1430f2",
+            "x-rapidapi-host": "nba-player-individual-stats.p.rapidapi.com"
+        }
+    })
+
+    .then(response => {
+            console.log(response)
+
+            return response.json()
+
+
+            //}).then(data => {
+            // console.log(data)
+        })
+        .then((response) => {
+            const players = response
+            const playerItems = players.map((player) => {
+                //console.log(player.age)
+                return `<div>
+          <h1>${player.firstName} ${player.lastName} 
+          <h1> Date of Birth: ${player.dateOfBirth}<h1> 
+               <p> HT/WT: ${player.height} ${player.weight} </p>
+               <p> Position:${player.position}</p>
+              <p> Team: ${player.team}</p>
+               <p>CareerBlocks:${player.careerBlocks}</p>
+               <p> careerPercentageFieldGoal:${player.careerPercentageFieldGoal}</p> 
+               <p>careerPercentageFreethrow:${player.careerPercentageFreethrow}</p><p>careerPercentageThree:${player.careerPercentageThree}<p>careerPoints:${player.careerPoints}</P><p>careerRebounds:${player.careerRebounds}</p>
+               <img src="${player.headShotUrl}"/>
+
+
+               </div>
+           `
+            })
+
+
+
+
+
+            // })
+
+            playerList.innerHTML = playerItems.join("")
+
+
+
+
+
+        })
+
+    .catch(err => {
+        console.error(err);
+    });
+
+})

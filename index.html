@@ -6,69 +6,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <nav class="nav">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">Sport News</a>
-            </div>
-            <div class="main_list" id="mainListDiv">
-                <ul>
-                    <form id="demo-2">
-                        <input type="search" placeholder="Search Players">
-                    </form>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="">News</a></li>
-                    <li><a href="">Teams</a></li>
-                    <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn">Sports</button>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a href="#">NFL</a>
-                            <a href="#">NBA</a>
-                            <a href="#">MLB</a>
-                        </div>
+    <section class="navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Sport News</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    </div>
-
-
-                    <!--Mobile version of dropdown (Hidden in fullscreen) -->
-                    <div class=hiddenList>
-                        <label>dropdownMobile</label>
-                        <a href="#">Option 1</a>
-                        <a href="#">Option 2</a>
-                        <a href="#">Option 3</a>
-                    </div>
-                    <div class=hiddenList2>
-                        <label>dropdownMobile2</label>
-                        <a href="#">NFL</a>
-                        <a href="#">NBA</a>
-                        <a href="#">MLB</a>
-                    </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                NFL
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">About</a>
+                            <a class="dropdown-item" href="#">News</a>
+                            <a id="gamesNFL" href="#">Games</a>
+                            <a class="dropdown-item" href="#">Teams</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                NBA
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">About</a>
+                            <a class="dropdown-item" href="#">News</a>
+                            <a id="gamesNBA" href="#">Games</a>
+                            <a class="dropdown-item" href="#">Teams</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                MLB
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">About</a>
+                            <a class="dropdown-item" href="#">News</a>
+                            <a id="gamesMLB" href="#">Games</a>
+                            <a class="dropdown-item" href="#">Teams</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                NHL
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">About</a>
+                            <a class="dropdown-item" href="#">News</a>
+                            <a class="gamesNHL" href="#">Games</a>
+                            <a class="dropdown-item" href="#">Teams</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Other
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Other</a>
+                            <a class="dropdown-item" href="#">Other</a>
+                            <a class="dropdown-item" href="#">Other</a>
+                            <a class="dropdown-item" href="#">Other</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                        <input id="input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>
+            <div class="player-box">
+                <ul id="player-list">
+
                 </ul>
             </div>
+        </nav>
+    </section>
+    <section class="page-content">
+        <!--Div Container to display the Game Scoreboard-->
+        <div id="scoreboard-container">
+            <div id="scorebox-div">
+                <h4>Score Board</h4>
+                <ul id="scoreInfoUL">
 
-
-
-            <!--Mobile Mode Hamburger menu (Hidden in fullscreen)-->
-
-            <div class="media_button">
-                <button class="main_media_button" id="mediaButton">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                </ul>
             </div>
         </div>
-
-    </nav>
-    <!--------------------->
-    <section class="home"></section>
+        <!--------------------->
+    </section>
     <script src="app.js"></script>
-    <script src="dropdown.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 </html>
