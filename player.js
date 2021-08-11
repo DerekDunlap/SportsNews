@@ -1,4 +1,6 @@
 // player search info
+
+const playerList = document.getElementById('playerList')
 submit.addEventListener('click', function() {
     console.log("fetch")
         //fetch(`https://www.balldontlie.io/api/v1/players?search=${input.value}`)

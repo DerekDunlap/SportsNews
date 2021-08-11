@@ -1,5 +1,4 @@
-let mainListDiv = document.getElementById("mainListDiv"),
-    mediaButton = document.getElementById("mediaButton");
+const homePage = document.getElementById("homePage")
 const sportsNewsUL = document.getElementById("sportsNewsUL")
 const nflNewsButton = document.getElementById("nflNewsButton")
 const nbaNewsButton = document.getElementById("nbaNewsButton")
@@ -7,37 +6,27 @@ const mlbNewsButton = document.getElementById("mlbNewsButton")
 const nhlNewsButton = document.getElementById("nhlNewsButton")
 const wnbaNewsButton = document.getElementById("wnbaNewsButton")
 const collegeFootballNewsButton = document.getElementById("collegeFootballNewsButton")
+
 const sportsInfoUL = document.getElementById("sportsInfoUL")
 const input = document.querySelector("input")
 const playerList = document.getElementById("player-list")
 const submit = document.getElementById('submit')
+const sportsInfoUL = document.getElementById("scoreInfoUL")
+let scoreBoardDiv = document.getElementById("scoreboard-container")
+scoreBoardDiv.style.display = "none"
 
-
-// mediaButton.onclick = function() {
-//     "use strict";
-//     mainListDiv.classList.toggle("show_list");
-//     mediaButton.classList.toggle("active");
-// };
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn, .dropbtn2')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
+//Testing UI for scoresDisplay
+const gamesNFL = document.getElementById("gamesNFL")
+const gamesNBA = document.getElementById("gamesNBA")
+const gamesMLB = document.getElementById("gamesMLB")
+const gamesEPL = document.getElementById("gamesEPL")
+const gamesMLS = document.getElementById("gamesMLS")
+const gamesNHL = document.getElementById("gamesNHL")
+const gamesWNBA = document.getElementById("gamesWNBA")
+const gamesBBallMens = document.getElementById("gamesBBallMens")
+const gamesBBallWomens = document.getElementById("gamesBBallWomens")
+const gamesNCAABaseball = document.getElementById("gamesNCAABaseball")
+const gamesNCAAF = document.getElementById("gamesNCAAF")
 
 //gets Sports News Articles from ESPN API with LiveServer turned on. Pass url and callback function
 function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
@@ -90,14 +79,108 @@ getSportsNews(collegeFootballNewsURL, function(sportsNewArticles) {
     })
     //})
 
-//gamesLink.addEventListener('click',function(){
-//ScoresURL **Testing Purposes
-const nflScoresURL = `http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
-const mlbScoresURL = `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
-getSportsNews(nflScoresURL, function(scoreBoardData) {
+homePage.addEventListener('click', function() {
+    scoreBoardDiv.style.display = "none"
+})
+
+gamesNFL.addEventListener('click', function() {
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display = "flex"
+    const nflScoresURL = `http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
+    getSportsNews(nflScoresURL, function(scoreBoardData) {
         displaySportsScore(scoreBoardData)
     })
-    //})
+})
+
+gamesNBA.addEventListener('click', function() {
+    scoreBoardDiv.style.display = "flex"
+    const nbaScoresURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard`
+    getSportsNews(nbaScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesMLB.addEventListener('click', function() {
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display = "flex"
+    const mlbScoresURL = `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
+    getSportsNews(mlbScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesEPL.addEventListener('click', function() {
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display = "flex"
+    const eplScoresURL = `http://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard`
+    getSportsNews(eplScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesMLS.addEventListener('click', function() {
+    scoreBoardDiv.style.display = "flex"
+    const mlsScoresURL = `http://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard`
+    getSportsNews(mlsScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesNHL.addEventListener('click', function() {
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display = "flex"
+    const nhlScoresURL = `http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard`
+    getSportsNews(nhlScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesWNBA.addEventListener('click', function() {
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display = "flex"
+    const wnbaScoresURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard`
+    getSportsNews(wnbaScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesNCAAF.addEventListener('click', function() {
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display = "flex"
+    const ncaaFScoresURL = `http://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard`
+    getSportsNews(ncaaFScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesBBallMens.addEventListener('click', function() {
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display = "flex"
+    const mensBBallScoresURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard`
+    getSportsNews(mensBBallScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesBBallWomens.addEventListener('click', function() {
+    //ScoresURL **Testing Purposes
+    scoreBoardDiv.style.display = "flex"
+    const womensBBallScoresURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard`
+    getSportsNews(womensBBallScoresURL, function(scoreBoardData) {
+        displaySportsScore(scoreBoardData)
+    })
+})
+
+gamesNCAABaseball.addEventListener('click', function() {
+        //ScoresURL **Testing Purposes
+        scoreBoardDiv.style.display = "flex"
+        const ncaaBaseballScoresURL = `https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard`
+        getSportsNews(ncaaBaseballScoresURL, function(scoreBoardData) {
+            displaySportsScore(scoreBoardData)
+        })
+    }) >>>
+    >>>
+    > master
 
 //display function can be called by all sports tab (Examples: NFL,NBA,Soccer)
 function displaySportsArticles(sportsNewArticles) {
@@ -119,8 +202,9 @@ function displaySportsArticles(sportsNewArticles) {
         //sportsNewsUL.innerHTML = sportItem.join("")
 }
 
-//new
+
 function displaySportsScore(sportsScoresData) {
+
     const sportsEvents = sportsScoresData.events
     const eventItem = sportsEvents.map(function(sportsEvent) {
         const sportsVenue = sportsEvent.competitions.map(function(sportsComp) {
@@ -129,20 +213,22 @@ function displaySportsScore(sportsScoresData) {
                     return `<li>${sportsOppoent.team.name} ${sportsOppoent.records[i].summary} ${sportsOppoent.score}</li>\n`
                 }
             })
+
             sportsTeams = sportsTeams.join("")
             let gameDate = new Date(sportsComp.date)
             let weekday = new Intl.DateTimeFormat('en', { weekday: 'short' }).format(gameDate)
             let month = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(gameDate)
             let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(gameDate)
             gameDate = `${weekday} ${month}/${day}`
-            return `${gameDate} - ${sportsComp.status.type.description} - ${sportsComp.venue.fullName}
-            <div>
+            return `<div>
+                ${gameDate} - ${sportsComp.status.type.description} @ ${sportsComp.venue.fullName}
                 <ul>${sportsTeams}</ul>
             </div>`
         })
         const sportsEventTemplate = `<li>
         <label>${sportsVenue}</label>
         </li>`
-        console.log(sportsEventTemplate)
+        return sportsEventTemplate
     })
+    sportsInfoUL.innerHTML = eventItem.join("")
 }
