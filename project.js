@@ -26,25 +26,6 @@ submit.addEventListener('click', function() {
 
             playerList.innerHTML = playerItems.join("")
 
-            // const first_nameValue = data[0].first_name;
-            // const last_nameValue = data[0].last_name
-            // const positionValue = data[1].position;
-            // const abbreviationValue = data.Team.abbreviation;
-            // const conferenceValue = data.Team.conference;
-            // const cityValue = data.Team.city;
-            // const divisionValue = data.Team.division;
-            // const full_nameValue = data.Team.full_name;
-            // const nameValue = data.Team.name;
-
-            // first_nameValue.innerHTML = first_nameValue;
-            // last_nameValue.innerHTML = last_nameValue;
-            // positionValue.innerHTML = positionValue
-            // abbreviation.innerHTML = abbreviationValue
-            // conferenceValue.innerHTML = conferenceValue
-            // cityValue.innerHTML = cityValue
-            // divisionValue.innerHTML = divisionValue
-            // full_name.innerHTML = full_nameValue
-            // nameValue.innerHTML = nameValue
         })
 
     .catch(err => {
