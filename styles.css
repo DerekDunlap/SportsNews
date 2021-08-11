@@ -130,3 +130,16 @@ height: 7vh;
 #scoreInfoUL label{
     width: 100%;
 }
+.nav-link {
+    color: rgb(188, 188, 189) !important;
+}
+.nav-link:hover {
+    color: rgb(255, 255, 255) !important;
+}
+.btn {
+    background-color: #2d62d4 !important;
+    color: white;
+}
+.btn-outline-success {
+    color: white;
+}
