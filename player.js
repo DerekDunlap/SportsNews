@@ -25,16 +25,16 @@ submit.addEventListener('click', function() {
             const players = response
             const playerItems = players.map((player) => {
                 //console.log(player.age)
-                return `<div>
+                return `<div class="player">
+             <img class="img" src="${player.headShotUrl}"/>
           <h1>${player.firstName} ${player.lastName} 
-          <h1> Date of Birth: ${player.dateOfBirth}<h1> 
+          <p> DOB: ${player.dateOfBirth}<p> 
                <p> HT/WT: ${player.height} ${player.weight} </p>
                <p> Position:${player.position}</p>
               <p> Team: ${player.team}</p>
-               <p>CareerBlocks:${player.careerBlocks}</p>
-               <p> careerPercentageFieldGoal:${player.careerPercentageFieldGoal}</p> 
-               <p>careerPercentageFreethrow:${player.careerPercentageFreethrow}</p><p>careerPercentageThree:${player.careerPercentageThree}<p>careerPoints:${player.careerPoints}</P><p>careerRebounds:${player.careerRebounds}</p>
-               <img src="${player.headShotUrl}"/>
+               <p>Career Blocks:${player.careerBlocks}</p>
+               <p>Career FG%:${player.careerPercentageFieldGoal}</p> 
+               <p>Career FT%:${player.careerPercentageFreethrow}</p><p>Career % Three:${player.careerPercentageThree}<p>Career Points:${player.careerPoints}</P><p>Career Rebounds:${player.careerRebounds}</p>
 
 
                </div>
