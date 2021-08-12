@@ -322,6 +322,9 @@ function displaySportsArticles(sportName,sportsNewArticles) {
         <img src="${sportArticle.images[0].url}"/>
         <label>${sportArticle.description}
         <label>Published At: ${sportArticle.published}
+        <a href="${sportArticle.links.web.href}">
+        <button type="button" class="btn btn-secondary">Read More</button>
+        </a>
         </li>`
         return sportsNewsTemplate
     })
@@ -361,7 +364,10 @@ function displaySportsScore(sportName,sportsScoresData){
 function displayAllTeams(sportName,allTeamsData){
     const teamsArr=allTeamsData.sports[0].leagues[0].teams
     const teamItems=teamsArr.map((team)=>{
-        return `<li><div><img src="${team.team.logos[0].href}"/></div> <div><h3>${team.team.displayName}</h3></div></li>`
+        return `<li><div><img src="${team.team.logos[0].href}"/></div> <div><h3>${team.team.displayName}</h3></div>
+        <a href="${team.team.links[0].href}">
+        <button type="button" class="btn btn-secondary">Team Info</button>
+        </a></li>`
     })
     teamsName.innerText=sportName
     sportsTeamsUL.innerHTML=teamItems.join("")
