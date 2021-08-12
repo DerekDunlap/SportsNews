@@ -30,7 +30,7 @@
                 <a class="dropdown-item" href="#">About</a>
                 <a class="dropdown-item" id="nflNewsButton" href="#">News</a>
                 <a class="dropdown-item" id="gamesNFL" href="#">Games</a>
-                <a class="dropdown-item" id="teamsNFL" value="NFL Teams" href="#">Teams</a>
+                <a class="dropdown-item" id="teamsNFL" value="NFL" href="#">Teams</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
@@ -41,9 +41,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">About</a>
-                <a class="dropdown-item" href="#">News</a>
+                <a class="dropdown-item" id="nbaNewsButton" href="#">News</a>
                 <a class="dropdown-item" id="gamesNBA" href="#">Games</a>
-                <a class="dropdown-item" id="teamsNBA" value="NBA Teams" href="#">Teams</a>
+                <a class="dropdown-item" id="teamsNBA" value="NBA" href="#">Teams</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
@@ -55,9 +55,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">About</a>
-                <a class="dropdown-item" href="#">News</a>
+                <a class="dropdown-item" id="mlbNewsButton" href="#">News</a>
                 <a class="dropdown-item" id="gamesMLB" href="#">Games</a>
-                <a class="dropdown-item" id="teamsMLB" value="MLB Teams" href="#">Teams</a>
+                <a class="dropdown-item" id="teamsMLB" value="MLB" href="#">Teams</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
@@ -69,9 +69,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">About</a>
-                <a class="dropdown-item" href="#">News</a>
+                <a class="dropdown-item" id="eplNewsButton" href="#">News</a>
                 <a class="dropdown-item" id="gamesEPL" href="#">Games</a>
-                <a class="dropdown-item" id="teamsEPL" data-sport="leagueName" value="EPL Clubs"href="#">Teams</a>
+                <a class="dropdown-item" id="teamsEPL" data-sport="leagueName" value="EPL" href="#">Teams</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" id="gamesMLS" href="#">MLS Games</a>
               </div>
@@ -83,9 +83,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">About</a>
-                <a class="dropdown-item" href="#">News</a>
+                <a class="dropdown-item" id="nhlNewsButton" href="#">News</a>
                 <a class="dropdown-item" id="gamesNHL" href="#">Games</a>
-                <a class="dropdown-item" id="teamsNHL" value="NHL Teams" href="#">Teams</a>
+                <a class="dropdown-item" id="teamsNHL" value="NHL" href="#">Teams</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
@@ -97,9 +97,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">About</a>
-                <a class="dropdown-item" href="#">News</a>
+                <a class="dropdown-item" id="wnbaNewsButton" href="#">News</a>
                 <a class="dropdown-item" id="gamesWNBA" href="#">Games</a>
-                <a class="dropdown-item" id="teamsWNBA" value="WNBA Teams" href="#">Teams</a>
+                <a class="dropdown-item" id="teamsWNBA" value="WNBA" href="#">Teams</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
@@ -111,9 +111,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Rankings</a>
-                <a class="dropdown-item" href="#">News</a>
+                <a class="dropdown-item" id="collegeFootballNewsButton" href="#">News</a>
                 <a class="dropdown-item" id="gamesNCAAF" href="#">Games</a>
-                <a class="dropdown-item" id="teamsNCAAF"  value="NCAAF Teams" href="#">Teams</a>
+                <a class="dropdown-item" id="teamsNCAAF"  value="NCAAF" href="#">Teams</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
@@ -142,7 +142,7 @@
         <!--Div Container to display the Game Scoreboard-->
         <div id="scoreboard-container">
           <div id="scorebox-div">
-              <h4>Score Board</h4>
+            <h4 id="leagueName">Scores</h4>
               <ul id="scoreInfoUL">
               </ul>
           </div>
@@ -151,20 +151,22 @@
       <!--Div Container to display all 32 NFL Teams-------->
       <div id="teams-container">
         <div id="teams-div">
-          <h4 id="leagueName"></h4>
+          <h4 id="leagueName">Teams</h4>
           <ul id="sportsTeamsUL">
           
           </ul>
         </div>
       </div>
       <!--------------------------------------------------->
-      <ul id=sportsNewsUL></ul>
+      <!-- container for news -->
+      <div id="news-container">
+        <div id="news-div">
+          <h4 id="leagueName">News</h4>
+          <ul id=sportsNewsUL>
+
+          </ul>
         </div>
-        <!-- container for news -->
-        <div id="news-container">
-            <div id="news-div">
-            </div>
-        </div>
+      </div>
       </section>
       <script src="player.js"></script>
       <script src="app.js"></script>

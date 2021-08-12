@@ -128,7 +128,8 @@ border: 1px solid #000000;
 }
 
 #news-container {
-    background-color: rgb(165, 165, 165);
+    display: flex;
+    background-color: rgba(237, 238, 240, .8);
     text-align: center;
     font-size: x-large;
     list-style-type: none;

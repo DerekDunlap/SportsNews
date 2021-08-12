@@ -10,7 +10,7 @@ const wnbaNewsButton = document.getElementById("wnbaNewsButton")
 const collegeFootballNewsButton = document.getElementById("collegeFootballNewsButton")
 const sportsInfoUL=document.getElementById("scoreInfoUL")
 
-let newsArticleContainerDiv=document.getElementById("newsArticle-container")
+let newsArticleContainerDiv=document.getElementById("news-container")
 let scoreBoardDiv=document.getElementById("scoreboard-container")
 let teamsContainerDiv=document.getElementById("teams-container")
 
@@ -40,7 +40,7 @@ clearDisplay()
 //Added to all buttons to clearDisplay
 function clearDisplay(){
     //Uncomment when News Article is finished
-    //newsArticleContainerDiv.style.display="none"
+    newsArticleContainerDiv.style.display="none"
     scoreBoardDiv.style.display="none"
     teamsContainerDiv.style.display="none"
 }
@@ -119,8 +119,8 @@ teamsNCAAF.addEventListener('click',function(){
 })
 
 nflNewsButton.addEventListener('click', function() {
-    //clearDisplay()
-    //newsArticleContainerDiv.style.display="flex"
+    clearDisplay()
+    newsArticleContainerDiv.style.display="flex"
     const nflNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/nfl/news`
     getSportsNews(nflNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
@@ -172,11 +172,8 @@ collegeFootballNewsButton.addEventListener('click', function() {
     })
 })
 
-clearDisplay()
-
 homePage.addEventListener('click',function(){
     clearDisplay()
-    scoreBoardDiv.style.display="none"
 })
 
 gamesNFL.addEventListener('click',function(){
