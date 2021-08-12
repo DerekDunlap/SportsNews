@@ -76,12 +76,19 @@ h4 {
     background-color: rgb(49, 13, 255);
     color: white;
 }
+
 .btn-outline-success {
-    color: white;
+    background-color: rgb(49, 13, 255);
+     border-color: #5b665e;
+     border-width: 2px;
 }
-.btn-primary{
-    background-color: #68889E;
-    }
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+  
+}
+
 .dropdown-menu{
 background-color: #f0f0f0;
 border: 1px solid #000000;
@@ -116,7 +123,7 @@ border: 1px solid #000000;
 #sportsTeamsUL{
     list-style-type: none;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
 }
 
