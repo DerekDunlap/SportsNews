@@ -1,5 +1,6 @@
 const homePage=document.getElementById("homePage")
 const sportName=document.getElementById("sportName")
+const topNewsUL = document.getElementById("topNewsUL")
 const sportsNewsUL = document.getElementById("sportsNewsUL")
 const sportsTeamsUL=document.getElementById("sportsTeamsUL")
 const nflNewsButton = document.getElementById("nflNewsButton")
@@ -13,6 +14,7 @@ const sportsInfoUL=document.getElementById("scoreInfoUL")
 let newsArticleContainerDiv=document.getElementById("news-container")
 let scoreBoardDiv=document.getElementById("scoreboard-container")
 let teamsContainerDiv=document.getElementById("teams-container")
+let homeContainerDiv=document.getElementById("home-container")
 
 //Testing UI for scoresDisplay
 const gamesNFL=document.getElementById("gamesNFL")
@@ -39,7 +41,13 @@ const input = document.getElementById("input")
 const playerList = document.getElementById('players-container')
 const submit = document.getElementById('submit')
 
-clearDisplay()
+const topHeadlinesURL=`https://newsapi.org/v2/top-headlines?q=sports&language=en&apiKey=e2f529560d044928b22b33b3c8282dfe`
+
+getSportsNews(topHeadlinesURL, function(topNewArticles) {
+    clearDisplay()
+    homeContainerDiv.style.display="flex"
+    displaytopSports(topNewArticles)
+})
 
 //Added to all buttons to clearDisplay
 function clearDisplay(){
@@ -48,6 +56,7 @@ function clearDisplay(){
     scoreBoardDiv.style.display="none"
     teamsContainerDiv.style.display="none"
     playerList.style.display="none"
+    homeContainerDiv.style.display="none"
 }
 
 //gets Sports News Articles from ESPN API with LiveServer turned on. Pass url and callback function
@@ -179,6 +188,9 @@ collegeFootballNewsButton.addEventListener('click', function() {
 
 homePage.addEventListener('click',function(){
     clearDisplay()
+    getSportsNews(topHeadlinesURL, function(topNewArticles) {
+        displaySportsArticles(topNewArticles)
+    })
 })
 
 gamesNFL.addEventListener('click',function(){
@@ -294,7 +306,7 @@ function displaySportsArticles(sportsNewArticles) {
     const sportsArticles = sportsNewArticles.articles
     const sportItem = sportsArticles.map(function(sportArticle) {
         const sportsNewsTemplate = `<li>  
-        <img src="${sportArticle.images[0].url}" />
+        <img src="${sportArticle.images[0].url}"/>
         <label>${sportArticle.description}
         <label>Published At: ${sportArticle.published}
         </li>`
@@ -304,7 +316,6 @@ function displaySportsArticles(sportsNewArticles) {
 }
 
 function displaySportsScore(sportsScoresData){
-
     const sportsEvents = sportsScoresData.events
     const eventItem=sportsEvents.map(function(sportsEvent){
         const sportsVenue=sportsEvent.competitions.map(function(sportsComp){
@@ -333,10 +344,8 @@ function displaySportsScore(sportsScoresData){
 }
 
 function displayAllTeams(sportName,allTeamsData){
-    console.log(sportName)
     const teamsArr=allTeamsData.sports[0].leagues[0].teams
     const teamItems=teamsArr.map((team)=>{
-        //console.log(team.team)
         return `<li><div><img src="${team.team.logos[0].href}"/></div> <div><h3>${team.team.displayName}</h3></div></li>`
     })
     leagueName.innerHTML=sportName
@@ -360,17 +369,25 @@ submit.addEventListener('click', function() {
     .then((response) => {
         const players = response
         const playerItems = players.map((player) => {
-        return `<div class="player">
-            <img class="img" src="${player.headShotUrl}"/>
-            <h1>${player.firstName} ${player.lastName}
-            <p> DOB: ${player.dateOfBirth}<p>
-            <p> HT/WT: ${player.height} ${player.weight} </p>
-            <p> Position:${player.position}</p>
-            <p> Team: ${player.team}</p>
-            <p>Career Blocks:${player.careerBlocks}</p>
-            <p>Career FG%:${player.careerPercentageFieldGoal}</p> 
-            <p>Career FT%:${player.careerPercentageFreethrow}</p><p>Career % Three:${player.careerPercentageThree}<p>Career Points:${player.careerPoints}</P><p>Career Rebounds:${player.careerRebounds}</p>
-            </div>`
+            return `<div class="player">
+             <div class="playerheading>
+                 <div class="playerimg"><img class="img" src="${player.headShotUrl}"/></div>
+                 <div class"playername"><h2>${player.firstName} ${player.lastName}</h2></div>
+                 <div class="age"><p>DOB:${player.dateOfBirth}<p></div>
+            </div>
+           <div class="playerfooter">
+           <div class="playerstat1"><p>HT/WT: ${player.height}</p></div>
+           <div class="playerstat1"><p>Weight: ${player.weight}</p></div>
+           <div class="playerstat2"><p>Position: ${player.position}</p></div>
+           <div class="playerstat3"><p>Team: ${player.team}</p></div>
+           <div class="playerstat4"><p>Career Blocks: ${player.careerBlocks}</p></div>
+           <div class="playerstat5"><p>Career FG%: ${player.careerPercentageFieldGoal}</p></div>
+           <div class="playerstat6"><p>Career FT%: ${player.careerPercentageFreethrow}</p></div>
+           <div class="playerstat7"><p>Career%Three: ${player.careerPercentageThree}</p></div>
+           <div class="playerstat8"></p>Career Points: ${player.careerPoints}</P></div>
+           <div class="palyerstat9"><p>Career Rebounds: ${player.careerRebounds}</p></div>
+       </div>
+           </div>`
         })
         playerList.innerHTML = playerItems.join("")
     })
@@ -378,3 +395,18 @@ submit.addEventListener('click', function() {
         console.error(err);
     });
 })
+
+function displaytopSports(topNewArticles){
+    const topArticles=topNewArticles.articles
+    const topNewsItem = topArticles.map(function(topArticle) {
+        const topNewsTemplate = `<li> 
+        <h2>${topArticle.title}</h2>
+        <a href="${topArticle.url}"><img src="${topArticle.urlToImage}"/></a>
+        <div>
+        <label>${topArticle.description}
+        </div>
+        </li>`
+        return topNewsTemplate
+    })
+    topNewsUL.innerHTML=topNewsItem.join("")
+}
