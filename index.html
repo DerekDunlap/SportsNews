@@ -132,13 +132,20 @@
             </li>
           </ul>
           <!--<form class="form-inline my-2 my-lg-0">-->
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Players" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" id="input" type="search" placeholder="Search Players" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" id="submit" type="submit">Submit</button>
           <!--</form>-->
         </div>
       </nav>
       </section>
       <section class="page-content">
+        <div id="players-container">
+          <div id="player-box">
+            <ul id="playerList">
+  
+            </ul>
+          </div>
+        </div>
         <!--Div Container to display the Game Scoreboard-->
         <div id="scoreboard-container">
           <div id="scorebox-div">
@@ -168,7 +175,7 @@
         </div>
       </div>
       </section>
-      <script src="player.js"></script>
+      <!--<script src="player.js"></script>-->
       <script src="app.js"></script>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
