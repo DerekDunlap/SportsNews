@@ -140,6 +140,14 @@ nbaNewsButton.addEventListener('click', function() {
         displaySportsArticles(sportsNewArticles)
     })
 })
+eplNewsButton.addEventListener('click', function() {
+    clearDisplay()
+    newsArticleContainerDiv.style.display = "flex"
+    const eplNewsURL = `https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/news`
+    getSportsNews(eplNewsURL, function(sportsNewArticles) {
+        displaySportsArticles(sportsNewArticles)
+    })
+})
 
 mlbNewsButton.addEventListener('click', function() {
     clearDisplay()
