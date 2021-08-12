@@ -30,7 +30,7 @@ height: 4vh;
 }
 
 #scoreboard-container h4{
-    width: 98%;
+    width: 100%;
     background-color: #343a40!important;
     text-align: left;
     font-size: xx-large;
@@ -41,7 +41,7 @@ height: 4vh;
 }
 
 #teams-container h4{
-    width: 98%;
+    width: 100%;
     background-color: #343a40!important;
     text-align: left;
     font-size: xx-large;
@@ -52,7 +52,7 @@ height: 4vh;
 }
 
 #news-container h4{
-    width: 98%;
+    width: 100%;
     background-color: #343a40!important;
     text-align: left;
     font-size: xx-large;
@@ -63,7 +63,7 @@ height: 4vh;
 }
 
 #home-container h4{
-    width: 98%;
+    width: 100%;
     background-color: #343a40!important;
     text-align: left;
     font-size: xx-large;
@@ -176,7 +176,7 @@ border: 1px solid #000000;
     div.ball {
       display: none;
     }
-  }
+}
 
 #home-container{
     display: flex;
