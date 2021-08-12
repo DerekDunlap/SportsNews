@@ -13,6 +13,7 @@ const sportsInfoUL=document.getElementById("scoreInfoUL")
 let newsArticleContainerDiv=document.getElementById("news-container")
 let scoreBoardDiv=document.getElementById("scoreboard-container")
 let teamsContainerDiv=document.getElementById("teams-container")
+let homeContainerDiv=document.getElementById("home-container")
 
 //Testing UI for scoresDisplay
 const gamesNFL=document.getElementById("gamesNFL")
@@ -39,7 +40,12 @@ const input = document.getElementById("input")
 const playerList = document.getElementById('players-container')
 const submit = document.getElementById('submit')
 
+const topHeadlinesURL=` https://newsapi.org/v2/top-headlines?country=us&apiKey=e2f529560d044928b22b33b3c8282dfe`
+
 clearDisplay()
+getSportsNews(topHeadlinesURL, function(topNewArticles) {
+    //displaySportsArticles(topNewArticles)
+})
 
 //Added to all buttons to clearDisplay
 function clearDisplay(){
@@ -48,6 +54,7 @@ function clearDisplay(){
     scoreBoardDiv.style.display="none"
     teamsContainerDiv.style.display="none"
     playerList.style.display="none"
+    homeContainerDiv.style.display="none"
 }
 
 //gets Sports News Articles from ESPN API with LiveServer turned on. Pass url and callback function
@@ -179,6 +186,9 @@ collegeFootballNewsButton.addEventListener('click', function() {
 
 homePage.addEventListener('click',function(){
     clearDisplay()
+    getSportsNews(topHeadlinesURL, function(topNewArticles) {
+        displaySportsArticles(topNewArticles)
+    })
 })
 
 gamesNFL.addEventListener('click',function(){
@@ -294,7 +304,7 @@ function displaySportsArticles(sportsNewArticles) {
     const sportsArticles = sportsNewArticles.articles
     const sportItem = sportsArticles.map(function(sportArticle) {
         const sportsNewsTemplate = `<li>  
-        <img src="${sportArticle.images[0].url}" />
+        <img src="${sportArticle.images[0].url}"/>
         <label>${sportArticle.description}
         <label>Published At: ${sportArticle.published}
         </li>`
@@ -304,7 +314,6 @@ function displaySportsArticles(sportsNewArticles) {
 }
 
 function displaySportsScore(sportsScoresData){
-
     const sportsEvents = sportsScoresData.events
     const eventItem=sportsEvents.map(function(sportsEvent){
         const sportsVenue=sportsEvent.competitions.map(function(sportsComp){
@@ -378,3 +387,17 @@ submit.addEventListener('click', function() {
         console.error(err);
     });
 })
+
+function displaytopSports(topNewArticles){
+    const topArticles=topNewArticles.articles
+    const sportItem = topArticles.map(function(articles) {
+        const sportsNewsTemplate = `<li>  
+        <img src="${articles.images[0].url}" />
+        <label>${articles.description}
+        <label>Published At: ${articles.published}
+        </li>`
+        return sportsNewsTemplate
+    })
+    sportsNewsUL.innerHTML = sportItem.join("")
+    topNewsUL.innerHTML=topNewsItem.join("")
+}
