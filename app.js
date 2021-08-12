@@ -11,6 +11,9 @@ const eplNewsButton = document.getElementById("eplNewsButton")
 const wnbaNewsButton = document.getElementById("wnbaNewsButton")
 const collegeFootballNewsButton = document.getElementById("collegeFootballNewsButton")
 const sportsInfoUL=document.getElementById("scoreInfoUL")
+let scoresName=document.getElementById("scoresName")
+let teamsName=document.getElementById("teamsName")
+let newsName=document.getElementById("newsName")
 
 let newsArticleContainerDiv=document.getElementById("news-container")
 let scoreBoardDiv=document.getElementById("scoreboard-container")
@@ -138,7 +141,7 @@ nflNewsButton.addEventListener('click', function() {
     newsArticleContainerDiv.style.display="flex"
     const nflNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/nfl/news`
     getSportsNews(nflNewsURL, function(sportsNewArticles) {
-        displaySportsArticles(sportsNewArticles)
+        displaySportsArticles(nflNewsButton.getAttribute("value"),sportsNewArticles)
     })
 })
 
@@ -147,7 +150,7 @@ nbaNewsButton.addEventListener('click', function() {
     newsArticleContainerDiv.style.display="flex"
     const nbaNewsURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/nba/news`
     getSportsNews(nbaNewsURL, function(sportsNewArticles) {
-        displaySportsArticles(sportsNewArticles)
+        displaySportsArticles(nbaNewsButton.getAttribute("value"),sportsNewArticles)
     })
 })
 
@@ -156,7 +159,7 @@ mlbNewsButton.addEventListener('click', function() {
     newsArticleContainerDiv.style.display="flex"
     const mlbNewsURL = `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news`
     getSportsNews(mlbNewsURL, function(sportsNewArticles) {
-        displaySportsArticles(sportsNewArticles)
+        displaySportsArticles(mlbNewsButton.getAttribute("value"),sportsNewArticles)
     })
 })
 
@@ -164,8 +167,8 @@ eplNewsButton.addEventListener('click', function() {
     clearDisplay()
     newsArticleContainerDiv.style.display="flex"
     const eplNewsURL = `http://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/news`
-    getSportsNews(mlbNewsURL, function(sportsNewArticles) {
-        displaySportsArticles(sportsNewArticles)
+    getSportsNews(eplNewsURL, function(sportsNewArticles) {
+        displaySportsArticles(eplNewsButton.getAttribute("value"),sportsNewArticles)
     })
 })
 
@@ -174,7 +177,7 @@ nhlNewsButton.addEventListener('click', function() {
     newsArticleContainerDiv.style.display="flex"
     const nhlNewsURL = `http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news`
     getSportsNews(nhlNewsURL, function(sportsNewArticles) {
-        displaySportsArticles(sportsNewArticles)
+        displaySportsArticles(nhlNewsButton.getAttribute("value"),sportsNewArticles)
     })
 })
 
@@ -183,7 +186,7 @@ wnbaNewsButton.addEventListener('click', function() {
     newsArticleContainerDiv.style.display="flex"
     const wnbaNewsURL = `http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news`
     getSportsNews(wnbaNewsURL, function(sportsNewArticles) {
-        displaySportsArticles(sportsNewArticles)
+        displaySportsArticles(wnbaNewsButton.getAttribute("value"),sportsNewArticles)
     })
 })
 
@@ -192,7 +195,7 @@ collegeFootballNewsButton.addEventListener('click', function() {
     newsArticleContainerDiv.style.display="flex"
     const collegeFootballNewsURL = `http://site.api.espn.com/apis/site/v2/sports/football/college-football/news`
     getSportsNews(collegeFootballNewsURL, function(sportsNewArticles) {
-        displaySportsArticles(sportsNewArticles)
+        displaySportsArticles(collegeFootballNewsButton.getAttribute("value"),sportsNewArticles)
     })
 })
 
@@ -209,7 +212,7 @@ gamesNFL.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const nflScoresURL=`http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
     getSportsNews(nflScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesNFL.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -218,7 +221,7 @@ gamesNBA.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const nbaScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard`
     getSportsNews(nbaScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesNBA.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -228,7 +231,7 @@ gamesMLB.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const mlbScoresURL=`http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
     getSportsNews(mlbScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesMLB.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -238,7 +241,7 @@ gamesEPL.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const eplScoresURL=`http://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard`
     getSportsNews(eplScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesEPL.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -247,7 +250,7 @@ gamesMLS.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const mlsScoresURL=`http://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard`
     getSportsNews(mlsScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gameMLS.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -257,7 +260,7 @@ gamesNHL.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const nhlScoresURL=`http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard`
     getSportsNews(nhlScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesNHL.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -267,7 +270,7 @@ gamesWNBA.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const wnbaScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard`
     getSportsNews(wnbaScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesWNBA.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -277,7 +280,7 @@ gamesNCAAF.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const ncaaFScoresURL=`http://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard`
     getSportsNews(ncaaFScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesNCAAF.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -287,7 +290,7 @@ gamesBBallMens.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const mensBBallScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard`
     getSportsNews(mensBBallScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesBBallMens.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -297,7 +300,7 @@ gamesBBallWomens.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const womensBBallScoresURL=`http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard`
     getSportsNews(womensBBallScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesBBallWomens.getAttribute("value"),scoreBoardData)
     })
 })
 
@@ -307,12 +310,12 @@ gamesNCAABaseball.addEventListener('click',function(){
     scoreBoardDiv.style.display="flex"
     const ncaaBaseballScoresURL=`https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard`
     getSportsNews(ncaaBaseballScoresURL,function(scoreBoardData){
-        displaySportsScore(scoreBoardData)
+        displaySportsScore(gamesNCAABaseball.getAttribute("value"),scoreBoardData)
     })
 })
 
 //display function can be called by all sports tab (Examples: NFL,NBA,Soccer)
-function displaySportsArticles(sportsNewArticles) {
+function displaySportsArticles(sportName,sportsNewArticles) {
     const sportsArticles = sportsNewArticles.articles
     const sportItem = sportsArticles.map(function(sportArticle) {
         const sportsNewsTemplate = `<li>  
@@ -322,10 +325,11 @@ function displaySportsArticles(sportsNewArticles) {
         </li>`
         return sportsNewsTemplate
     })
+    newsName.innerText=sportName
     sportsNewsUL.innerHTML = sportItem.join("")
 }
 
-function displaySportsScore(sportsScoresData){
+function displaySportsScore(sportName,sportsScoresData){
     const sportsEvents = sportsScoresData.events
     const eventItem=sportsEvents.map(function(sportsEvent){
         const sportsVenue=sportsEvent.competitions.map(function(sportsComp){
@@ -350,6 +354,7 @@ function displaySportsScore(sportsScoresData){
         </li>`
         return sportsEventTemplate
     })
+    scoresName.innerText=sportName
     sportsInfoUL.innerHTML=eventItem.join("")
 }
 
@@ -358,7 +363,7 @@ function displayAllTeams(sportName,allTeamsData){
     const teamItems=teamsArr.map((team)=>{
         return `<li><div><img src="${team.team.logos[0].href}"/></div> <div><h3>${team.team.displayName}</h3></div></li>`
     })
-    leagueName.innerHTML=sportName
+    teamsName.innerText=sportName
     sportsTeamsUL.innerHTML=teamItems.join("")
 }
 

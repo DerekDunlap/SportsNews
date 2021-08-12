@@ -30,8 +30,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://en.wikipedia.org/wiki/National_Football_League" target="_blank">About</a>
-                <a class="dropdown-item" id="nflNewsButton" href="#">News</a>
-                <a class="dropdown-item" id="gamesNFL" href="#">Games</a>
+                <a class="dropdown-item" id="nflNewsButton" value="NFL News" href="#">News</a>
+                <a class="dropdown-item" id="gamesNFL" value="NFL Games" href="#">Games</a>
                 <a class="dropdown-item" id="teamsNFL" value="NFL Teams" href="#">Teams</a>
               </div>
             </li>
@@ -41,8 +41,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://en.wikipedia.org/wiki/National_Basketball_Association" target="_blank">About</a>
-                <a class="dropdown-item" id="nbaNewsButton" href="#">News</a>
-                <a class="dropdown-item" id="gamesNBA" href="#">Games</a>
+                <a class="dropdown-item" id="nbaNewsButton" value="NBA News" href="#">News</a>
+                <a class="dropdown-item" id="gamesNBA" value="NBA Games" href="#">Games</a>
                 <a class="dropdown-item" id="teamsNBA" value="NBA Teams" href="#">Teams</a>
               </div>
             </li>
@@ -53,8 +53,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Major_League_Baseball" target="_blank">About</a>
-                <a class="dropdown-item" id="mlbNewsButton" href="#">News</a>
-                <a class="dropdown-item" id="gamesMLB" href="#">Games</a>
+                <a class="dropdown-item" id="mlbNewsButton" value="MLB News" href="#">News</a>
+                <a class="dropdown-item" id="gamesMLB" value="MLB Games" href="#">Games</a>
                 <a class="dropdown-item" id="teamsMLB" value="MLB Teams" href="#">Teams</a>
               </div>
             </li>
@@ -65,11 +65,11 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Premier_League" target="_blank">About</a>
-                <a class="dropdown-item" id="eplNewsButton" href="#">News</a>
-                <a class="dropdown-item" id="gamesEPL" href="#">Games</a>
-                <a class="dropdown-item" id="teamsEPL" data-sport="leagueName" value="EPL Clubs" href="#">Teams</a>
+                <a class="dropdown-item" id="eplNewsButton" value="EPL News" href="#">News</a>
+                <a class="dropdown-item" id="gamesEPL" value="EPL Games" href="#">Games</a>
+                <a class="dropdown-item" id="teamsEPL" value="EPL Teams" href="#">Teams</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" id="gamesMLS" href="#">MLS Games</a>
+                <a class="dropdown-item" id="gamesMLS" href="#" value="MLS Games">MLS Games</a>
               </div>
             </li>
 
@@ -79,8 +79,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://en.wikipedia.org/wiki/National_Hockey_League" target="_blank">About</a>
-                <a class="dropdown-item" id="nhlNewsButton" href="#">News</a>
-                <a class="dropdown-item" id="gamesNHL" href="#">Games</a>
+                <a class="dropdown-item" id="nhlNewsButton" value="NHL News" href="#">News</a>
+                <a class="dropdown-item" id="gamesNHL" value="NHL Games" href="#">Games</a>
                 <a class="dropdown-item" id="teamsNHL" value="NHL Teams" href="#">Teams</a>
               </div>
             </li>
@@ -91,8 +91,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Women%27s_National_Basketball_Association" target="_blank">About</a>
-                <a class="dropdown-item" id="wnbaNewsButton" href="#">News</a>
-                <a class="dropdown-item" id="gamesWNBA" href="#">Games</a>
+                <a class="dropdown-item" id="wnbaNewsButton" value="WNBA News"href="#">News</a>
+                <a class="dropdown-item" id="gamesWNBA" value="WNBA Games" href="#">Games</a>
                 <a class="dropdown-item" id="teamsWNBA" value="WNBA Teams" href="#">Teams</a>
               </div>
             </li>
@@ -103,8 +103,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://en.wikipedia.org/wiki/College_football" target="_blank">About</a>
-                <a class="dropdown-item" id="collegeFootballNewsButton" href="#">News</a>
-                <a class="dropdown-item" id="gamesNCAAF" href="#">Games</a>
+                <a class="dropdown-item" id="collegeFootballNewsButton" value="NCAAF News" href="#">News</a>
+                <a class="dropdown-item" id="gamesNCAAF" value="NCAAF Games" href="#">Games</a>
                 <a class="dropdown-item" id="teamsNCAAF"  value="NCAAF Teams" href="#">Teams</a>
               </div>
             </li>
@@ -114,9 +114,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://en.wikipedia.org/wiki/National_Collegiate_Athletic_Association" target="_blank">About</a>
-                <a class="dropdown-item" id="gamesBBallMens" href="#">Basketball (M)</a>
-                <a class="dropdown-item" id="gamesBBallWomens" href="#">Basketball (W)</a>
-                <a class="dropdown-item" id="gamesNCAABaseball" href="#">Baseball</a>
+                <a class="dropdown-item" id="gamesBBallMens" value="NCAABB (M)" href="#">Basketball (M)</a>
+                <a class="dropdown-item" id="gamesBBallWomens" value="NCAABB (W)" href="#">Basketball (W)</a>
+                <a class="dropdown-item" id="gamesNCAABaseball" value="NCAA Baseball" href="#">Baseball</a>
               </div>
             </li>
           </ul>
@@ -148,7 +148,7 @@
           <!--Div Container to display the Game Scoreboard-->
           <div id="scoreboard-container">
             <div id="scorebox-div">
-              <h4 id="leagueName">Scores</h4>
+              <h4 id="scoresName"></h4>
                 <ul id="scoreInfoUL">
                 </ul>
             </div>
@@ -157,7 +157,7 @@
         <!--Div Container to display all 32 NFL Teams-------->
         <div id="teams-container">
           <div id="teams-div">
-            <h4 id="leagueName"></h4>
+            <h4 id="teamsName"></h4>
             <ul id="sportsTeamsUL">
             
             </ul>
@@ -167,7 +167,7 @@
         <!-- container for news -->
         <div id="news-container">
           <div id="news-div">
-            <h4 id="leagueName">News</h4>
+            <h4 id="newsName"></h4>
             <ul id=sportsNewsUL>
 
             </ul>
