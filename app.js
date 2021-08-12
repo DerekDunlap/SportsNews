@@ -7,6 +7,7 @@ const nflNewsButton = document.getElementById("nflNewsButton")
 const nbaNewsButton = document.getElementById("nbaNewsButton")
 const mlbNewsButton = document.getElementById("mlbNewsButton")
 const nhlNewsButton = document.getElementById("nhlNewsButton")
+const eplNewsButton = document.getElementById("eplNewsButton")
 const wnbaNewsButton = document.getElementById("wnbaNewsButton")
 const collegeFootballNewsButton = document.getElementById("collegeFootballNewsButton")
 const sportsInfoUL=document.getElementById("scoreInfoUL")
@@ -154,6 +155,15 @@ mlbNewsButton.addEventListener('click', function() {
     clearDisplay()
     newsArticleContainerDiv.style.display="flex"
     const mlbNewsURL = `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news`
+    getSportsNews(mlbNewsURL, function(sportsNewArticles) {
+        displaySportsArticles(sportsNewArticles)
+    })
+})
+
+eplNewsButton.addEventListener('click', function() {
+    clearDisplay()
+    newsArticleContainerDiv.style.display="flex"
+    const eplNewsURL = `http://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/news`
     getSportsNews(mlbNewsURL, function(sportsNewArticles) {
         displaySportsArticles(sportsNewArticles)
     })

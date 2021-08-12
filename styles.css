@@ -39,6 +39,29 @@ height: 4vh;
     border-bottom: ridge;
     border-radius: 1%;
 }
+
+#teams-container h4{
+    width: 98%;
+    background-color: #343a40!important;
+    text-align: left;
+    font-size: xx-large;
+    padding: 1%;
+    border-top: 1%;
+    border-bottom: ridge;
+    border-radius: 1%;
+}
+
+#news-container h4{
+    width: 98%;
+    background-color: #343a40!important;
+    text-align: left;
+    font-size: xx-large;
+    padding: 1%;
+    border-top: 1%;
+    border-bottom: ridge;
+    border-radius: 1%;
+}
+
 h4 {
     color: white !important;
 }
