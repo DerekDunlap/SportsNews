@@ -188,6 +188,10 @@ border: 1px solid #000000;
     background-color: rgba(237, 238, 240, .8);
     color: #303030;
 }
+
+#home-div{
+    width: 100%;
+}
 #topNewsUL{
     list-style-type: none;
     display: flex;

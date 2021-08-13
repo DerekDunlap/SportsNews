@@ -423,9 +423,6 @@ function displaytopSports(topNewArticles){
         const topNewsTemplate = `<li> 
         <h2>${topArticle.title}</h2>
         <a href="${topArticle.url}"><img src="${topArticle.urlToImage}"/></a>
-        <div>
-        <label>${topArticle.description}
-        </div>
         </li>`
         return topNewsTemplate
     })
