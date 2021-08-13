@@ -70,6 +70,8 @@ function getSportsNews(sportsNewsURL, sportsNewsDownloaded) {
             return response.json()
         }).then(sportsNewsArticles => {
             sportsNewsDownloaded(sportsNewsArticles)
+        }).catch(err => {
+            console.error(err);
         })
 }
 
