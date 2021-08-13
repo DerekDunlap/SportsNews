@@ -45,7 +45,7 @@ const input = document.getElementById("input")
 const playerList = document.getElementById('players-container')
 const submit = document.getElementById('submit')
 
-const topHeadlinesURL=`https://newsapi.org/v2/top-headlines?q=sports&language=en&apiKey=e2f529560d044928b22b33b3c8282dfe`
+const topHeadlinesURL=`https://gnews.io/api/v4/search?topic=sports&q=sports&lang=en&token=3943582806df3b2a4a7d524d5cfd9402`
 
 getSportsNews(topHeadlinesURL, function(topNewArticles) {
     clearDisplay()
@@ -422,7 +422,7 @@ function displaytopSports(topNewArticles){
     const topNewsItem = topArticles.map(function(topArticle) {
         const topNewsTemplate = `<li> 
         <h2>${topArticle.title}</h2>
-        <a href="${topArticle.url}"><img src="${topArticle.urlToImage}"/></a>
+        <a href="${topArticle.url}"><img src="${topArticle.image}"/></a>
         </li>`
         return topNewsTemplate
     })
