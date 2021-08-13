@@ -45,7 +45,7 @@ const input = document.getElementById("input")
 const playerList = document.getElementById('players-container')
 const submit = document.getElementById('submit')
 
-const topHeadlinesURL=`https://gnews.io/api/v4/search?topic=sports&q=sports&lang=en&token=3943582806df3b2a4a7d524d5cfd9402`
+const topHeadlinesURL=`https://gnews.io/api/v4/search?topic=sports&q=sports&lang=en&token=1f9beb19876257b463232f36212ab5d5`
 
 getSportsNews(topHeadlinesURL, function(topNewArticles) {
     clearDisplay()
